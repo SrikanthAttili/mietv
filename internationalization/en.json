@@ -13,6 +13,8 @@
   "Overview": "Overview",
   "Videos": "Videos",
   "Media Photos": "Photos",
+  "Seasons": "Seasons",
+  "Episodes" : "Episodes",
 
   "Cast": "Cast",
   "More like this": "More like this",
@@ -49,6 +51,7 @@
 
   "{numberOfImages} Images": "{numberOfImages} Images",
   "{numberOfVideos} Videos": "{numberOfVideos} Videos",
+  "{numberOfSeasons} Seasons":"{numberOfSeasons} Seasons",
 
   "as {character}": "as {character}",
 

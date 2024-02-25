@@ -17,7 +17,7 @@ const [item, recommendations] = await Promise.all([
   getRecommendations(type.value, id.value),
 ])
 const $img = useImage()
-
+console.log(`$$$$$ ${getMedia}`)
 useHead({
   title: item.name || item.title,
   meta: [

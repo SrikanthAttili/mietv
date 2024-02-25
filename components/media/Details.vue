@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import type { Media, MediaType } from '~/types'
 
-defineProps<{
+const props = defineProps<{
   item: Media
   type: MediaType
 }>()
-
-const tab = ref<'overview' | 'videos' | 'photos'>('overview')
+const route = useRoute()
+const mediaType = computed(() => (route.params.type as MediaType === 'movie' ? 'Videos' : 'Episodes'))
+const tab = ref<'overview' | 'videos' | 'photos' | 'episodes'>('overview')
+console.log(props.type + '^^^^' + mediaType.value)
 </script>
 
 <template>
@@ -22,6 +24,6 @@ const tab = ref<'overview' | 'videos' | 'photos'>('overview')
     </button>
   </div>
   <MediaOverview v-if="tab === 'overview'" :item="item" :type="type" />
-  <MediaVideos v-if="tab === 'videos'" :item="item" />
+  <MediaVideos v-if="tab === 'videos'" :item="item" :media-type="type" />
   <MediaPhotos v-if="tab === 'photos'" :item="item" />
 </template>

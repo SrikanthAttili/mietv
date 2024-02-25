@@ -29,6 +29,7 @@ export interface Media {
   videos?: {
     results: Video[]
   }
+  seasons?: Season[]
   credits?: {
     cast: Person[]
     crew: Person[]
@@ -83,6 +84,33 @@ export interface Video {
   official: boolean
   published_at: string
   id: string
+}
+
+export interface Season {
+  air_date: string
+  episode_count?: string
+  episodes?: Episode[]
+  id: string
+  name: string
+  overview: string
+  poster_path: string
+  season_number: number
+  vote_average: string
+}
+
+export interface Episode {
+  air_date: string
+  episode_number: string
+  episode_type: string
+  id: string
+  name: string
+  overview: string
+  season_number: number
+  show_id: number
+  still_path: string
+  vote_count: string
+  crew: []
+  video_key?: string
 }
 
 export interface Image {

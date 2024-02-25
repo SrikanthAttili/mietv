@@ -6,6 +6,7 @@ defineProps<{
 }>()
 
 const show = useImageModal()
+console.log('I am at photos')
 </script>
 
 <template>
