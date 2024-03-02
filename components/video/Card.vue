@@ -55,7 +55,7 @@ function play() {
       <NuxtImg
         :src="`https://image.tmdb.org/t/p/w400${episode.still_path}`"
         width="400"
-        height="600"
+        height="225"
         format="webp"
         :alt="episode.name"
         w-full h-full object-cover

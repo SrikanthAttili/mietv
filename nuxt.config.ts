@@ -2,7 +2,7 @@ import process from 'node:process'
 
 const isDev = process.env.NODE_ENV === 'development'
 
-const apiBaseUrl = 'http://localhost:3001'
+const apiBaseUrl = '/api'
 // const apiBaseUrl = 'https://movies-proxy.vercel.app'
 
 export default defineNuxtConfig({
@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@nuxt/image',
     '@nuxtjs/i18n',
+    '@nuxtjs/supabase',
   ],
   experimental: {
     inlineSSRStyles: false,
@@ -24,24 +25,52 @@ export default defineNuxtConfig({
     public: {
       apiBaseUrl,
     },
+    tmdb: {
+      apiKey: process.env.TMDB_API_KEY || '',
+    },
+    supabase: {
+      url: process.env.SUPABASE_URL || '',
+      key: process.env.SUPABASE_KEY || '',
+    },
   },
   devtools: {
     enabled: true,
   },
   image: {
-    provider: 'proxy',
-    providers: {
-      proxy: {
-        provider: 'ipx',
-        options: {
-          baseURL: `${apiBaseUrl}/ipx`,
+    domains: [
+      'eu-region.b-cdn.net',
+      'image.tmdb.org',
+      'img.youtube.com',
+    ],
+    bunny: {
+      baseURL: 'https://eu-region.b-cdn.net/',
+    },
+    alias: {
+      b: 'https://eu-region.b-cdn.net/',
+      tmdb: 'https://image.tmdb.org/t/p/original/',
+      youtube: 'https://img.youtube.com/',
+    },
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'jpg',
+          width: 50,
+          height: 50,
         },
       },
     },
   },
+  supabase: {
+    redirect: false,
+    redirectOptions: {
+      login: '/',
+      callback: '/confirm',
+    },
+  },
   nitro: {
     routeRules: {
-      '/**': { isr: false },
+      '/**': { isr: false, cors: true },
+      '/tmdb/**': { swr: true },
     },
   },
   i18n: {

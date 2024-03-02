@@ -1,1 +1,3 @@
-export default defineEventHandler(() => 'Nuxt Movies API')
+export default eventHandler(() => {
+  return 'Mietv Proxy'
+})
