@@ -1,4 +1,19 @@
 export type MediaType = 'movie' | 'tv'
+export type MediaType1 = 'show'
+
+export interface Media1 {
+  id: string
+  language: string
+  title: string
+  poster_path: string
+  media_type?: MediaType1
+  genres?: Genre[]
+  seasons?: Season[]
+  credits?: {
+    cast: Person1[]
+  }
+  trailer_path?: string
+}
 
 export interface Media {
   adult: boolean
@@ -41,6 +56,16 @@ export interface Media {
   external_ids?: ExternalIds
   // cast
   character?: string
+}
+
+export interface Person1 {
+  id: string
+  name: string
+  biography: string
+  known_for_department: string
+  place_of_birth: string
+  birthday: string
+  profile_path: string
 }
 
 export interface Person {
@@ -86,6 +111,32 @@ export interface Video {
   id: string
 }
 
+export interface Video1 {
+  name: string
+  type: string
+  id: string
+  poster_path: string
+}
+
+export interface Season1 {
+  episodes?: Episode[]
+  id: string
+  name: string
+  season_number: number
+}
+
+export interface Episode1 {
+  episode_number: string
+  id: string
+  name: string
+  overview: string
+  season_number: number
+  show_id: number
+  still_path: string
+  vote_count: string
+  crew: []
+  video_key?: string
+}
 export interface Season {
   air_date: string
   episode_count?: string

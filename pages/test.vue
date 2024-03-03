@@ -11,7 +11,7 @@ const imgString = 'mie_tv/telugu/poster_db/TS%20class%2010%20Maths.jpg'
   >
     <NuxtImg
       width="400"
-      height="600"
+      height="225"
       format="webp"
       :src="`/b/${imgString}`"
     />
