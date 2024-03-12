@@ -72,6 +72,9 @@ export default defineNuxtConfig({
       '/**': { isr: false, cors: true },
       '/tmdb/**': { swr: true },
     },
+    prerender: {
+      autoSubfolderIndex: false,
+    },
   },
   i18n: {
     detectBrowserLanguage: {
